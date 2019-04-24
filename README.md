@@ -30,7 +30,63 @@
 - 基于`Feign`的`RPC`调用
 - RPC异常转业务异常
 
-## 3. 目录结构
+## 3. 项目初始化脚本
+
+```bash
+rm -rf baijifeilong-spring-cloud-blog
+
+spring init --groupId io.github.baijifeilong --artifactId baijifeilong-spring-cloud-blog --package-name io.github.baijifeilong.blog --dependencies lombok --force --name Blog baijifeilong-spring-cloud-blog
+
+cd baijifeilong-spring-cloud-blog
+
+rm -rf src
+
+mkdir base && cd base
+
+spring init --groupId io.github.baijifeilong --artifactId blog-eureka --package-name io.github.baijifeilong.blog.eureka --dependencies lombok,cloud-eureka-server --force --name BlogEureka blog-eureka
+
+spring init --groupId io.github.baijifeilong --artifactId blog-code-generator --package-name io.github.baijifeilong.blog.code.generator --dependencies lombok,jooq,mysql --force --name BlogCodeGenerator blog-code-generator
+
+spring init --groupId io.github.baijifeilong --artifactId blog-generated-jooq --package-name io.github.baijifeilong.blog.generated.jooq --dependencies lombok --force --name BlogGeneratedJooq blog-generated-jooq
+
+spring init --groupId io.github.baijifeilong --artifactId blog-foundation --package-name io.github.baijifeilong.blog.foundation --dependencies lombok,cloud-feign --force --name BlogFoundation blog-foundation
+
+cd ..
+
+mkdir parent && cd parent
+
+spring init --groupId io.github.baijifeilong --artifactId blog-parent --package-name io.github.baijifeilong.blog.parent --dependencies lombok,cloud-eureka --force --name BlogParent blog-parent
+
+rm -rf blog-parent/src
+
+spring init --groupId io.github.baijifeilong --artifactId blog-provider-parent --package-name io.github.baijifeilong.blog.provider.parent --dependencies lombok,web,mysql,jdbc,jooq,data-redis,cloud-eureka,cloud-feign,actuator --force --name BlogProviderParent blog-provider-parent
+
+rm -rf blog-provider-parent/src
+
+spring init --groupId io.github.baijifeilong --artifactId blog-api-parent --package-name io.github.baijifeilong.blog.api.parent --dependencies lombok,web,cloud-feign --force --name BlogApiParent blog-api-parent
+
+rm -rf blog-api-parent/src
+
+cd ..
+
+mkdir business && cd business
+
+spring init --groupId io.github.baijifeilong --artifactId blog-user-provider --package-name io.github.baijifeilong.blog.user.provider --dependencies lombok --force --name BlogUserProvider blog-user-provider
+
+spring init --groupId io.github.baijifeilong --artifactId blog-user-api --package-name io.github.baijifeilong.blog.user.api --dependencies lombok --force --name BlogUserApi blog-user-api
+
+spring init --groupId io.github.baijifeilong --artifactId blog-article-provider --package-name io.github.baijifeilong.blog.article.provider --dependencies lombok --force --name BlogArticleProvider blog-article-provider
+
+spring init --groupId io.github.baijifeilong --artifactId blog-article-api --package-name io.github.baijifeilong.blog.article.api --dependencies lombok --force --name BlogArticleApi blog-article-api
+
+cd ..
+
+cd ..
+
+cd ..
+```
+
+## 4. 目录结构
 
 ```text
 ├── HELP.md
