@@ -6,25 +6,31 @@
 
 ### 1.1 依赖管理(parent目录)
 
-`blog-parent` 根模块
-`blog-api-parent` API模块的根模块
-`blog-provider-parent` 服务模块的根模块
+- `blog-parent` 根模块
+- `blog-api-parent` API模块的根模块
+- `blog-provider-parent` 服务模块的根模块
 
 ### 1.2 基础模块
 
-`blog-code-generator` 代码生成器模块，用于JOOQ代码生成
-`blog-generated-jooq` 生成的JOOQ代码
-`blog-foundation` 公用模块
-`blog-eureka` 注册中心服务器
+- `blog-code-generator` 代码生成器模块，用于JOOQ代码生成
+- `blog-generated-jooq` 生成的JOOQ代码
+- `blog-foundation` 公用模块
+- `blog-eureka` 注册中心服务器
 
 ### 1.3 业务模块
 
-`blog-user-api` 用户服务的Feign接口
-`blog-user-service` 用户服务
-`blog-article-api` 文章服务的Feign接口
-`blog-article-service` 文章服务
+- `blog-user-api` 用户服务的Feign接口
+- `blog-user-service` 用户服务
+- `blog-article-api` 文章服务的Feign接口
+- `blog-article-service` 文章服务
 
-## 2. 目录结构
+## 2. 实现的功能
+
+- 注册中心服务器`Eureka`
+- 基于`Feign`的`RPC`调用
+- RPC异常转业务异常
+
+## 3. 目录结构
 
 ```text
 ├── HELP.md
